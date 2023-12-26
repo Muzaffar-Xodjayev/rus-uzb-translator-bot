@@ -12,30 +12,32 @@ from aiogram.types import CallbackQuery
 @dp.message_handler(CommandStart())
 async def bot_start(message: types.Message):
     name = message.from_user.full_name
+    await message.answer("hello")
     # ADD USER IN DB
-    is_subs = await check_sub_channels(message)
-    if is_subs:
-        try:
-            await db.add_user(
-                telegram_id=message.from_user.id,
-                full_name=name,
-                username=message.from_user.username
-            )
-            await message.answer(f"Assalomu alaykum, {message.from_user.full_name}!\n<b>Ruscha va O'zbekcha Tarjimon</b> Botiga xush kelibsiz!")
-            count = await db.select_all_user()
-            msg = f"{message.from_user.full_name} bazaga qo'shildi.\nBazada {len(count)} ta foydalanuvchi bor."
-            try:
-                for user in ADMINS:
-                    await bot.send_message(user, msg)
-            except:
-                pass
+    # is_subs = await check_sub_channels(message)
+    # if is_subs:
+    #     try:
+    #         await db.add_user(
+    #             telegram_id=message.from_user.id,
+    #             full_name=name,
+    #             username=message.from_user.username
+    #         )
+    #         await message.answer(f"Assalomu alaykum, {message.from_user.full_name}!\n<b>Ruscha va O'zbekcha Tarjimon</b> Botiga xush kelibsiz!")
+    #         count = await db.select_all_user()
+    #         msg = f"{message.from_user.full_name} bazaga qo'shildi.\nBazada {len(count)} ta foydalanuvchi bor."
+    #         try:
+    #             for user in ADMINS:
+    #                 await bot.send_message(user, msg)
+    #         except:
+    #             pass
+    #
+    #     except asyncpg.exceptions.UniqueViolationError:
+    #         await message.answer(f"Hurmatli Foydalanuvchi siz Bot ga a'zo bo'lgansiz bemalol foydalanishingiz mumkin.")
+    # else:
+    #     btn = await show_channels()
+    #     context = f"Xurmatli {message.from_user.full_name} botni ishlatishdan oldin quyidagi kanallarga obuna bo'ling 👇"
+    #     await message.answer(text=context, reply_markup=btn)
 
-        except asyncpg.exceptions.UniqueViolationError:
-            await message.answer(f"Hurmatli Foydalanuvchi siz Bot ga a'zo bo'lgansiz bemalol foydalanishingiz mumkin.")
-    else:
-        btn = await show_channels()
-        context = f"Xurmatli {message.from_user.full_name} botni ishlatishdan oldin quyidagi kanallarga obuna bo'ling 👇"
-        await message.answer(text=context,reply_markup=btn)
 
 @dp.callback_query_handler(text='sub_channel_done')
 async def check_sub(call: CallbackQuery):

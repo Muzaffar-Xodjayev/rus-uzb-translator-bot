@@ -4,6 +4,7 @@ from loader import dp, bot, db
 
 from data.config import ADMINS
 
+
 @dp.chat_join_request_handler()
 async def approver(req: types.ChatJoinRequest):
     user_id = req.from_user.id

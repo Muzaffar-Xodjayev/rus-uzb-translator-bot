@@ -6,6 +6,7 @@ from asyncpg.pool import Pool
 
 from data import config
 
+
 class Database:
     def __init__(self):
         self.pool: Union[Pool, None] = None
@@ -19,10 +20,10 @@ class Database:
         )
 
     async def execute(self, command, *args,
-                      fetch: bool=False,
-                      fetchval: bool=False,
-                      fetchrow: bool=False,
-                      execute: bool= False
+                      fetch: bool = False,
+                      fetchval: bool = False,
+                      fetchrow: bool = False,
+                      execute: bool = False
                       ):
         async with self.pool.acquire() as connection:
             connection: Connection
@@ -36,7 +37,6 @@ class Database:
                 elif execute:
                     result = await connection.execute(command, *args)
             return result
-
 
     async def create_table_users(self):
         sql = """
