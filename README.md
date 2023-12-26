@@ -1,1 +1,1 @@
-# The Translator bot for translate text Russion to Uzbek
+## The Translator bot for translate text Russian to Uzbek
