@@ -13,7 +13,7 @@ class Users(BaseModel):
     telegram_id = BigIntegerField(primary_key=True)
     full_name = CharField(max_length=500)
     username = CharField(max_length=300, null=True)
-    join_date = DateTimeField(formats=["%Y-%m-%d %H:%M:%S"])
+    join_date = DateTimeField(formats=["%d-%m-%Y %H:%M:%S"])
 
     class Meta:
         db_name = 'users'
