@@ -1,10 +1,6 @@
-from aiogram import types
-from aiogram.dispatcher.filters.builtin import CommandHelp
-
-from loader import dp
+from aiogram import types, Dispatcher
 
 
-@dp.message_handler(CommandHelp())
 async def help_user(message: types.Message):
     msg = f"Bot Tomonidan foydalanuvchiga yordam ko'rsatish bo'limi\n" \
           f"Buyruqlar:\n/start — Botni ishga tushirish\n" \
@@ -17,3 +13,6 @@ async def help_user(message: types.Message):
 
     await message.reply(msg)
 
+
+def register_help_handler(dp: Dispatcher):
+    dp.register_message_handler(help_user, commands="help")
