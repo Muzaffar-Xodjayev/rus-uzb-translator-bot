@@ -1,4 +1,5 @@
 from aiogram.dispatcher.filters.state import State, StatesGroup
 
-class Advers(StatesGroup):
+
+class Message(StatesGroup):
     text = State()

@@ -6,9 +6,8 @@ async def help_user(message: types.Message):
           f"Buyruqlar:\n/start — Botni ishga tushirish\n" \
           f"/help — Yordam Ko'rsatish va Bot ishlash tartibi\n\n" \
           f"<b>Botni ishlash tartibi</b>\n\n" \
-          f"1.Agar Siz yozgan matn biror manoga ega bo'lsa va mazmuni bo'lsa bu bot sizga yozgan matningizni Rus yoki O'zbek tilida tarjimasini qaytaradi.\n" \
-          f"2.Agar siz yozgan matn biror bir atama yoki shahar nomi v.h.z. larni yozsangiz ularni ma'nosini qaytaradi.\n" \
-          f"3.Agar siz ma'nosiz yoki lug'atda yo'q so'zlarni yozsangiz \"bunday so'z topilmadi\" degan xato chiqadi. " \
+          f"1.Agar Siz yozgan matn biror manoga ega bo'lsa va mazmuni bo'lsa bu bot sizga yozgan matningizni " \
+          f"Rus yoki O'zbek tilida tarjimasini qaytaradi.\n" \
 
 
     await message.reply(msg)
