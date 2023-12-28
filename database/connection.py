@@ -15,7 +15,7 @@ async def add_user(user_id, name, username, join_time):
             )
             count = Users.select()
 
-            msg = f"<a href='tg://user?id={6202185692}'>{name}</a> Bazaga qo'shildi. " \
+            msg = f"<a href='tg://user?id={user_id}'>{name}</a> Bazaga qo'shildi. " \
                   f"\nBazada {len(count)} foydalanuvchi bor"
             for user in ADMINS:
                 await bot.send_message(user, msg)
