@@ -33,3 +33,19 @@ async def get_one_by_id(telegram_id):
         usr = Users.select().where(Users.telegram_id == telegram_id)
         user = [model_to_dict(item) for item in usr]
         return user
+
+
+async def save_channel(channel_id, channel_name, channel_url):
+    with db:
+        if not Channels.select().where(Channels.channel_id == channel_id).exists():
+            Channels.create(channel_id=channel_id, channel_name=channel_name, channel_url=channel_url)
+
+
+async def get_all_channels():
+    with db:
+        return [model_to_dict(item) for item in Channels.select()]
+
+
+async def delete_channel(channel_id):
+    with db:
+        Channels.delete().where(Channels.channel_id == channel_id).execute()
