@@ -1,8 +1,8 @@
 from peewee import *
 from data.config import DB_NAME, DB_USER, DB_HOST, DB_PASS, DB_PORT
 
-# db = PostgresqlDatabase(DB_NAME, user=DB_USER, host=DB_HOST, password=DB_PASS, port=DB_PORT)
-db = SqliteDatabase("data.db")
+db = PostgresqlDatabase(DB_NAME, user=DB_USER, host=DB_HOST, password=DB_PASS, port=DB_PORT)
+# db = SqliteDatabase("data.db")
 
 
 class BaseModel(Model):
