@@ -61,7 +61,7 @@ async def send_msg(msg: types.Message, state: FSMContext):
                     await bot.send_location(chat_id=user_id, latitude=lat, longitude=lon, reply_markup=rep_btn)
                     await asyncio.sleep(0.05)
                 send_user += 1
-            except BotBlocked:
+            except Exception:
                 send_error += 1
                 continue
         if send_user == 0:

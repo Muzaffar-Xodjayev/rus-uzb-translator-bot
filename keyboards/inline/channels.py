@@ -16,7 +16,9 @@ async def manage_channels(channels):
                                         url=f"{item['channel_url']}") for item in channels], )
     plus = InlineKeyboardButton(text="➕ Qo'shish", callback_data="manage_channel:plus")
     minus = InlineKeyboardButton(text="➖ O'chirish", callback_data="manage_channel:minus")
+    back = InlineKeyboardButton(text="🔙 Ortga", callback_data="manage_channel:back")
     keyboard.row(plus, minus)
+    keyboard.add(back)
     return keyboard
 
 

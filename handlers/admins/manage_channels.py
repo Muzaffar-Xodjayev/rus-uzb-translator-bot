@@ -29,6 +29,9 @@ async def manage_channel(call: types.CallbackQuery):
         channel = await get_all_channels()
         btn = await channels_list_btn(channel)
         await call.message.edit_text("Qaysi kanalni o'chirmoqchisiz", reply_markup=btn)
+    else:
+        await call.message.delete()
+        await intro_admin(call.message)
 
 
 async def remove_channel(call: types.CallbackQuery):
